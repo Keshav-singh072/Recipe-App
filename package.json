@@ -1,0 +1,24 @@
+{
+  "name": "recipe-app",
+  "version": "1.0.0",
+  "description": "Recipe App by - 2024IMT-036",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keshav-singh072/Recipe-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Keshav-singh072/Recipe-App/issues"
+  },
+  "homepage": "https://github.com/Keshav-singh072/Recipe-App#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

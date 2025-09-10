@@ -1,0 +1,41 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Classic Margherita Pizza",
+      "ingredients": [
+        "Pizza dough",
+        "Tomato sauce",
+        "Fresh mozzarella cheese",
+        "Fresh basil leaves",
+        "Olive oil",
+        "Salt and pepper to taste"
+      ],
+      "instructions": [
+        "Preheat your oven to 475°F (245°C).",
+        "Roll out the pizza dough on a floured surface.",
+        "Spread a thin layer of tomato sauce over the dough.",
+        "Tear the fresh mozzarella and distribute it evenly.",
+        "Bake for 10-12 minutes, or until the crust is golden.",
+        "Garnish with fresh basil, a drizzle of olive oil, and a pinch of salt and pepper."
+      ],
+      "prepTimeMinutes": 20,
+      "cookTimeMinutes": 12,
+      "servings": 4,
+      "difficulty": "Easy",
+      "cuisine": "Italian",
+      "caloriesPerServing": 300,
+      "tags": [
+        "Pizza",
+        "Italian"
+      ],
+      "userId": 45,
+      "image": "https://dummyjson.com/image/i/products/1/1.jpg",
+      "rating": 4.6,
+      "reviewCount": 98,
+      "mealType": [
+        "Dinner"
+      ]
+    }
+  ]
+}
