@@ -46,8 +46,8 @@
                 <a href="#" class="text-gray-600 hover:text-orange-500 transition duration-300">Contact</a>
             </div>
              <div class="relative hidden md:block">
-                <input id="search-input" type="text" class="bg-gray-100 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400" placeholder="Search recipes...">
-                <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                <input id="search-input" type="text" class="bg-gray-100 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" placeholder="Search recipes..." disabled>
+                <button type="submit" class="absolute right-0 top-0 mt-3 mr-4 cursor-not-allowed">
                     <svg class="h-4 w-4 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
                 </button>
             </div>
@@ -55,8 +55,8 @@
         <!-- Mobile Search -->
         <div class="md:hidden p-4 bg-white border-t">
              <div class="relative">
-                <input id="mobile-search-input" type="text" class="w-full bg-gray-100 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-orange-400" placeholder="Search recipes...">
-                <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                <input id="mobile-search-input" type="text" class="w-full bg-gray-100 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" placeholder="Search recipes..." disabled>
+                <button type="submit" class="absolute right-0 top-0 mt-3 mr-4 cursor-not-allowed">
                     <svg class="h-4 w-4 fill-current text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
                 </button>
             </div>
@@ -113,8 +113,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const recipeGrid = document.getElementById('recipe-grid');
             const loadingIndicator = document.getElementById('loading-indicator');
-            const searchInput = document.getElementById('search-input');
-            const mobileSearchInput = document.getElementById('mobile-search-input');
             const paginationControls = document.getElementById('pagination-controls');
             const modal = document.getElementById('recipe-modal');
             const modalContent = document.getElementById('modal-content');
@@ -158,7 +156,7 @@
 
                 paginatedRecipes.forEach(recipe => {
                     const card = document.createElement('div');
-                    card.className = 'bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer';
+                    card.className = 'bg-white rounded-lg shadow-lg overflow-hidden';
                     card.innerHTML = `
                         <img src="${recipe.image}" alt="${recipe.name}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/e2e8f0?text=Image+Not+Found';">
                         <div class="p-5">
@@ -181,7 +179,6 @@
                             </div>
                         </div>
                     `;
-                    card.addEventListener('click', () => openModal(recipe));
                     recipeGrid.appendChild(card);
                 });
             }
@@ -237,20 +234,6 @@
                 }
                 button.addEventListener('click', onClick);
                 return button;
-            }
-
-            // Handle search input
-            function handleSearch(event) {
-                const searchTerm = event.target.value.toLowerCase();
-                filteredRecipes = allRecipes.filter(recipe =>
-                    recipe.name.toLowerCase().includes(searchTerm) ||
-                    recipe.cuisine.toLowerCase().includes(searchTerm) ||
-                    recipe.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
-                    recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
-                );
-                currentPage = 1;
-                displayRecipes();
-                setupPagination();
             }
 
             // Open recipe detail modal
@@ -318,9 +301,6 @@
             }
 
             // Event Listeners
-            searchInput.addEventListener('input', handleSearch);
-            mobileSearchInput.addEventListener('input', handleSearch);
-
             modal.addEventListener('click', (event) => {
                 if (event.target === modal) {
                     closeModal();
@@ -339,3 +319,4 @@
     </script>
 </body>
 </html>
+
